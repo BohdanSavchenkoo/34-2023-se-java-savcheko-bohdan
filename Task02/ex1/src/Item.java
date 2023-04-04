@@ -1,30 +1,40 @@
-package Task02.ex1;
+package Task02.ex1.src;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 
 /**
  * Калькулятор для підрахунку кількості цифр у даному числі.
  * @author BohdanSavchenko
  * @version 1.0
  */
-public class DecimalCalculator implements Serializable {
+public class Item implements Serializable {
+    static final long DEFAULT_NUM = 231314321231l;
     /**
      * Дане число для підрахунку
      */
     private long n;
     transient String transientExample = "Hehe";
+
+
     /** Конструктор
      * @param n - задане число
      */
-    public DecimalCalculator(long n) {
+    public Item(long n) {
         this.n = n;
+    }
+
+    public Item() {
+        this(DEFAULT_NUM);
     }
 
     /** Метод для підрахунку цифр у числі, та виводу результату
      * @void
      */
     public void countDigits(){
+
+        System.out.println("This n: " + this.n);
         int[] count = new int[10];
 
         String digitsOfString = Long.toString(n);
@@ -39,13 +49,15 @@ public class DecimalCalculator implements Serializable {
                 System.out.println(i + ": " + count[i]);
             }
         }
+
+        System.out.println("--------------------------------");
     }
 
     public long getN() {
         return n;
     }
 
-    public void setN(int n) {
+    public void setN(long n) {
         this.n = n;
     }
 
@@ -65,7 +77,7 @@ public class DecimalCalculator implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DecimalCalculator that = (DecimalCalculator) o;
+        Item that = (Item) o;
         return n == that.n;
     }
 
