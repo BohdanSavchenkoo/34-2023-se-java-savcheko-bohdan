@@ -4,6 +4,7 @@ import Task02.ex1.src.Item;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 /** ConcreteProduct
@@ -119,8 +120,20 @@ public class ViewResult implements View{
     @Override
     public void viewBody() {
         for(Item item : items) {
-            item.countDigits();
+//            item.countDigits();
+
+            System.out.println("Item n= " + item.getN());
+
+            for (Map.Entry<Integer, Integer> set :
+                    item.getResult().entrySet()) {
+
+                // Printing all elements of a Map
+                System.out.println(set.getKey() + " : "
+                        + set.getValue());
+            }
+
         }
+
         System.out.println();
     }
 

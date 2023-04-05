@@ -1,6 +1,9 @@
 package Task02.ex1.src;
 
 import java.io.Serializable;
+import java.util.Formatter;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
 
@@ -10,11 +13,15 @@ import java.util.Objects;
  * @version 1.0
  */
 public class Item implements Serializable {
+    private static final int DEFAULT_WIDTH = 50;
     static final long DEFAULT_NUM = 231314321231l;
     /**
      * Дане число для підрахунку
      */
     private long n;
+
+    private HashMap<Integer,Integer> result = new LinkedHashMap<>();
+
     transient String transientExample = "Hehe";
 
 
@@ -34,23 +41,21 @@ public class Item implements Serializable {
      */
     public void countDigits(){
 
-        System.out.println("This n: " + this.n);
         int[] count = new int[10];
 
         String digitsOfString = Long.toString(n);
-
+//        System.out.println("This n: " + n);
         for (int i = 0; i < digitsOfString.length(); i++) {
             int digit = Character.getNumericValue(digitsOfString.charAt(i));
             count[digit]++;
         }
-
         for (int i = 0; i < 10; i++) {
             if(count[i] != 0 ){
-                System.out.println(i + ": " + count[i]);
+                result.put(i, count[i]);
+//                System.out.println(i + ": " + count[i]);
             }
         }
-
-        System.out.println("--------------------------------");
+//        System.out.println("-------");
     }
 
     public long getN() {
@@ -59,6 +64,11 @@ public class Item implements Serializable {
 
     public void setN(long n) {
         this.n = n;
+        countDigits();
+    }
+
+    public HashMap<Integer, Integer> getResult() {
+        return result;
     }
 
     public String getTransientExample() {
