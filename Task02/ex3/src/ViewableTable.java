@@ -1,4 +1,4 @@
-package Task02.ex3;
+package Task02.ex3.src;
 
 import Task02.ex2.src.View;
 import Task02.ex2.src.ViewableResult;

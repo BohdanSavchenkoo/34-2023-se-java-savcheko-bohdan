@@ -1,8 +1,9 @@
-package Task02.ex3;
+package Task02.ex3.src;
 
 import Task02.ex1.src.Item;
 import Task02.ex2.src.ViewResult;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Map;
@@ -11,8 +12,6 @@ public class ViewTable extends ViewResult {
     private static final int DEFAULT_WIDTH = 50;
 
     private int width;
-
-    Item item = new Item();
 
     public ViewTable(){
         width = DEFAULT_WIDTH;

@@ -87,7 +87,7 @@ public class ViewResult implements View{
     @Override
     public void viewSave() throws IOException {
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(FIlENAME));
-        os.writeObject(items);
+        os.writeObject(this.getItems());
         os.flush();
         os.close();
     }
@@ -100,7 +100,7 @@ public class ViewResult implements View{
     @Override
     public void viewRestore() throws Exception {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream(FIlENAME));
-        items = (ArrayList<Item>) is.readObject();
+        this.setItems((ArrayList<Item>) is.readObject());
         is.close();
     }
 
