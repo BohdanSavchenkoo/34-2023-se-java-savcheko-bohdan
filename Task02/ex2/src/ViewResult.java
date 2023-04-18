@@ -23,7 +23,7 @@ public class ViewResult implements View{
     public static final String FIlENAME = "items.bin";
 
     /** Определяет количество элементов списка по умолчанию */
-    static final int DEFAULT_NUM = 5;
+    static final int DEFAULT_NUM = 1;
 
     /** Коллекция элементов */
     private ArrayList<Item> items = new ArrayList<>();
